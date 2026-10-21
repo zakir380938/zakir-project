@@ -13,6 +13,13 @@ class StudentRepository:
     def get_student_by_roll(self, db: Session, roll: str):
         return db.query(Student).filter(Student.roll == roll).first()
 
+    def delete_student_by_roll(self, db: Session, roll: str):
+        db_user = db.query(Student).filter(Student.roll == roll).first()
+        if db_user:
+            db.delete(db_user)
+            db.commit()
+
+
     def update_student(self, db: Session, student: Student):
         db.merge(student)
         db.commit()

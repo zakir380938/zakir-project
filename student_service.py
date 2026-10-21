@@ -16,6 +16,10 @@ class StudentService:
     def get_student_by_roll(self, db: Session, roll: str):
         return self.repository.get_student_by_roll(db, roll)
 
+    def delete_student_by_roll(self, db: Session, roll: str):
+            self.repository.delete_student_by_roll(db,roll)
+            return "Deleted Successfully"
+
     def update_student(self, db: Session, update_student: StudentUpdateRequest, roll: str):
         student = self.repository.get_student_by_roll(db, roll)
         if not student:

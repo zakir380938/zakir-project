@@ -18,7 +18,10 @@ def get_student_by_roll(roll: str, db = Depends(get_db)):
     service = StudentService()
     return service.get_student_by_roll(db, roll)
 
-
+@routers.delete("/{roll}")
+def delete_student_by_roll(roll: str, db:Session = Depends(get_db)):
+    service = StudentService()
+    return service.delete_student_by_roll(db, roll)
 
 @routers.post("/create", status_code= status.HTTP_201_CREATED)
 def create_student(student_payload : StudentCreateRequet, db = Depends(get_db)):
