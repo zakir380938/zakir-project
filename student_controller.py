@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, status
 from database import get_db
 from student_service import StudentService
 from schema import StudentResponse, StudentUpdateRequest, StudentCreateRequet
+from sqlalchemy.orm import Session
 
 
 routers = APIRouter(prefix="/students",tags=["Student"])
