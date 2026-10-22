@@ -47,7 +47,7 @@ async function loadStudents() {
     `;
 
     try {
-        const response = await fetch(STUDENTS_URL);
+        const response = await fetch(STUDENTS_URL+'list');
 
         if (!response.ok) {
             const errorData = await response.json().catch(() => ({}));
